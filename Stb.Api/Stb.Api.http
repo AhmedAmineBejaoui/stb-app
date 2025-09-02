@@ -1,0 +1,39 @@
+@Stb.Api_HostAddress = http://localhost:5138
+
+### Users
+GET {{Stb.Api_HostAddress}}/api/users
+Accept: application/json
+
+### Create User
+POST {{Stb.Api_HostAddress}}/api/users
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "userfirstname": "Test",
+  "email": "test@stb.local",
+  "mobile": "2222222222",
+  "password": "pass123",
+  "role": "User"
+}
+
+### Demandes
+GET {{Stb.Api_HostAddress}}/api/demandes
+Accept: application/json
+
+### Create Demande
+POST {{Stb.Api_HostAddress}}/api/demandes
+Content-Type: application/json
+
+{
+  "requestType": "Support technique",
+  "requestSubType": "Connexion réseau",
+  "description": "Problème de connexion",
+  "userId": 1
+}
+
+### Notifications by user
+GET {{Stb.Api_HostAddress}}/api/notifications?userId=1
+Accept: application/json
+
+###

@@ -1,0 +1,8 @@
+
+// Additional component-specific styles can go here
+.error {
+  @apply text-red-600 text-sm mt-1;
+}
+.msg-success {
+  @apply mt-4 text-green-600;
+}

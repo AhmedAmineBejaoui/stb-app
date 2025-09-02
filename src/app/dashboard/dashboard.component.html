@@ -1,0 +1,52 @@
+
+<div class="dashboard-container p-6">
+  <h2 class="text-2xl font-semibold mb-4">Les demandes</h2>
+
+  <div class="filter-bar flex items-center gap-2 mb-4">
+    <label for="statut" class="font-medium">Filtrer par statut</label>
+    <select id="statut" [(ngModel)]="filterStatus" class="p-2 border rounded">
+
+      <option value="Tout">Tout</option>
+      <option value="En attente">En attente</option>
+      <option value="Acceptée">Acceptée</option>
+      <option value="Rejetée">Rejetée</option>
+    </select>
+  </div>
+
+
+  <table class="table-demandes w-full border-collapse">
+
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Type</th>
+        <th>Objet</th>
+        <th>Date</th>
+        <th>Statut</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let d of filteredDemandes" (click)="showDetails(d)" class="cursor-pointer hover:bg-blue-50">
+
+        <td>{{ d.id }}</td>
+        <td>{{ d.type }}</td>
+        <td>{{ d.objet }}</td>
+        <td>{{ d.date }}</td>
+        <td>{{ d.statut }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="selected" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+  <div class="bg-white rounded-lg p-6 w-80">
+    <h3 class="text-lg font-semibold mb-2">{{ selected.type }}</h3>
+    <p><strong>ID:</strong> {{ selected.id }}</p>
+    <p><strong>Objet:</strong> {{ selected.objet }}</p>
+    <p><strong>Date:</strong> {{ selected.date }}</p>
+    <p><strong>Statut:</strong> {{ selected.statut }}</p>
+    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded" (click)="closeDetails()">Fermer</button>
+  </div>
+</div>
+

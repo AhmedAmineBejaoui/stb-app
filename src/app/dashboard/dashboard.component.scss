@@ -1,0 +1,10 @@
+
+// Styles using Tailwind CSS utilities
+.table-demandes th, .table-demandes td {
+  @apply px-4 py-3 border-b border-gray-200;
+}
+
+h2 {
+  @apply text-blue-900 mb-4;
+}
+

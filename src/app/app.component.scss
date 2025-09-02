@@ -1,0 +1,180 @@
+:host {
+  display: block;
+  height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #2d3748;
+  --stb-blue: #009fe3;
+  --stb-dark: #003366;
+  --stb-light: #e6f4fa;
+  --header-bg: rgba(255, 255, 255, 0.98);
+  --sidebar-width: 280px;
+  --transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #f9fafb;
+}
+
+.app-header {
+  width: 100%;
+  background: var(--header-bg);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s var(--transition-ease);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  .logo-image {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 159, 227, 0.2);
+  }
+
+  .bank-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--stb-dark);
+    margin: 0;
+    background: linear-gradient(135deg, var(--stb-blue), #0077cc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  .user-name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--stb-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+    i {
+      font-size: 1.2rem;
+      color: var(--stb-blue);
+    }
+  }
+
+  .btn-logout {
+    background: linear-gradient(135deg, #ff4d4d, #ff1a75);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 77, 77, 0.2);
+    position: relative;
+
+    i {
+      font-size: 1rem;
+    }
+  }
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  margin-top: 64px; // correspond à la hauteur du header
+}
+
+.main-content.auth-route {
+  margin-top: 0;
+}
+
+.app-sidebar {
+  width: var(--sidebar-width);
+  background: white;
+  border-right: 1px solid #e5e7eb;
+  padding: 1.5rem 0;
+  position: fixed;
+  height: calc(100vh - 64px);
+  top: 64px;
+  left: 0;
+  overflow-y: auto;
+  z-index: 900;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin-bottom: 0.25rem;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    padding: 0.875rem 2rem;
+    color: #4b5563;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.25s var(--transition-ease);
+    border-radius: 0.5rem;
+
+    i {
+      margin-right: 12px;
+      font-size: 1.1rem;
+      color: #6b7280;
+    }
+
+    &:hover {
+      color: var(--stb-blue);
+      background: rgba(0, 159, 227, 0.05);
+    }
+
+    &.active {
+      color: white;
+      background: linear-gradient(135deg, var(--stb-blue), #0077cc);
+      font-weight: 600;
+    }
+  }
+}
+
+.app-router-content {
+  margin-left: var(--sidebar-width);
+  padding: 2rem;
+  background-color: #f9fafb;
+  min-height: calc(100vh - 64px);
+  overflow-y: auto;
+  transition: margin-left 0.3s ease;
+}
+
+.app-router-content.auth-route {
+  margin-left: 0;
+  padding: 0;
+  background-color: transparent; /* ou la couleur de fond de ta page auth */
+}

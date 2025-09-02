@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "9ZiYcVW5dLEv/X2OcluNE25UE6Ty3HmI+Ec/bzuS/ig=",
+  "Source": "StbApp.Api",
+  "BasePath": "_content/StbApp.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

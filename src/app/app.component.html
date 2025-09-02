@@ -1,0 +1,39 @@
+<div class="app-container">
+
+  <header class="app-header" *ngIf="showHeaderSidebar">
+    <div class="logo-container">
+      <img src="assets/logo.jpg" alt="STB Bank" class="logo-image" />
+      <h1 class="bank-title">STB BANK</h1>
+    </div>
+
+    <div class="header-right">
+      <span class="user-name" *ngIf="userName">
+        <i class="bi bi-person-circle"></i> {{userName}}
+      </span>
+      <button class="btn-logout" (click)="logout()">
+        <i class="bi bi-box-arrow-right"></i> Déconnexion
+      </button>
+    </div>
+  </header>
+
+  <div class="main-content" [class.auth-route]="isAuthRoute">
+    <nav class="app-sidebar" *ngIf="showHeaderSidebar">
+      <ul>
+        <li>
+          <a routerLink="/dashboard" routerLinkActive="active">
+            <i class="fas fa-list me-2"></i> Liste des demandes
+          </a>
+        </li>
+        <li>
+          <a routerLink="/ajouter-demande" routerLinkActive="active">
+            <i class="fas fa-plus-circle me-2"></i> Ajouter une demande
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="app-router-content" [class.auth-route]="isAuthRoute">
+      <router-outlet></router-outlet>
+    </section>
+  </div>
+</div>
