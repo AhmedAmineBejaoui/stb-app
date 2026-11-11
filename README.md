@@ -1,27 +1,48 @@
-# Stb
+# STB App — Angular & .NET Full-Stack Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.12.
+A web application repository combining an **Angular 16 frontend** with a **.NET backend** and SQL database scripts. It demonstrates cross-stack application organization and API-oriented development.
 
-## Development server
+## Technology overview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+| Layer | Stack / files |
+| --- | --- |
+| Frontend | Angular 16, TypeScript, RxJS |
+| UI | Tailwind CSS, Bootstrap Icons |
+| Backend | .NET solution `StbBackend.sln`, `Stb.Api/`, `backend/` |
+| Database | `database.sql` |
 
-## Code scaffolding
+## Local development
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**Frontend prerequisites:** Node.js and npm.
 
-## Build
+```bash
+git clone https://github.com/AhmedAmineBejaoui/stb-app.git
+cd stb-app
+npm install
+npm start
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Angular serves the frontend on `http://localhost:4200/` by default. Backend setup and database configuration must be completed separately before using API-backed features.
 
-## Running unit tests
+## Available frontend commands
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+npm run build  # Production frontend build
+npm test       # Angular unit-test runner
+npm run watch  # Watch-mode build
+```
 
-## Running end-to-end tests
+For the backend, open `StbBackend.sln` in a compatible .NET environment, inspect its configuration, and run the appropriate backend project. The repository contains multiple backend-related directories; confirm which one is intended before deploying.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Repository map
 
-## Further help
+- `src/` — Angular frontend
+- `Stb.Api/` and `backend/` — backend implementation
+- `StbBackend.sln` — .NET solution
+- `database.sql` — SQL schema/data script
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Engineering focus
+
+This project illustrates a multi-technology application rather than a standalone Angular template. The repository has not been independently deployment- or security-audited.
+
+**Author:** [Ahmed Amin Bejaoui](https://github.com/AhmedAmineBejaoui)
